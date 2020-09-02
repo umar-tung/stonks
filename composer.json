@@ -1,0 +1,11 @@
+{
+    "name": "umar/stock-graph",
+    "description": "Graphs for stocks",
+    "authors": [
+        {
+            "name": "Umar Tung",
+            "email": "umartung@gmail.com"
+        }
+    ],
+    "require": {}
+}
