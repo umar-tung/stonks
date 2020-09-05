@@ -11,11 +11,23 @@
     <title>Stonks!</title>
   </head>
   <?php
+    require_once __DIR__.'/vendor/autoload.php';
+    require __DIR__.'/api_call.php'; 
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+    $api_key = $_ENV['API_KEY'];
+    $api_url = $_ENV['API_URL'];
     $stock = "";
-
+    $function = "TIME_SERIES_MONTHLY";
+    $stock_data = "";
+    $response="";
+    $api_request_url = "";
+    $another_response = "";
     if($_SERVER["REQUEST_METHOD"] == "POST"){
       $stock = $_POST["stock"];
-      
+      $api_request_url = $api_url."?"."function=".$function."&symbol=".$stock."&apikey=".$api_key;
+      $response = file_get_contents($api_request_url);
+       
     }
   ?>
   <body>
@@ -25,6 +37,10 @@
     <input type="submit" value="submit"> 
 
     </form>
+    <p>The api url: <?=$api_url?></p>
+    <p>The api key: <?=$api_key?></p>
+    <p>The stock data: <?=$stock_data?></p>
+    <p>The request url: <?=$api_request_url?></p>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
