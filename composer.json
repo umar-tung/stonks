@@ -8,6 +8,7 @@
         }
     ],
     "require": {
-        "vlucas/phpdotenv": "^5.1"
+        "vlucas/phpdotenv": "^5.1",
+        "ob/highcharts-bundle": "^1.7"
     }
 }
